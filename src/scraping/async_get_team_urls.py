@@ -17,8 +17,8 @@ config = {
     "use_proxy": False,  # use proxy
     "use_proxy_once": False,  # enable this to use a different proxy for each session (if you have enough proxies)
     "proxy_location": ".../.../proxies.txt",  # location of the proxy list (format: server:port:username:password), 1 every line
-    "user_agents_location": ".../.../user_agents.json",  # location of the user agents list # refer to the readme for more info
-    "cookie_location": ".../.../autologin_cookie.json",  # location of the cookies incl. autologin
+    "user_agents_location": "data/user_agents.json",  # location of the user agents list # refer to the readme for more info
+    "cookie_location": "data/cookies.json",  # location of the cookies incl. autologin
 }
 
 
@@ -74,7 +74,7 @@ async def scrape_team_urls(session_id, headless, url):
     ) as browser:
         context = await browser.new_context()
         status(
-            f"[+] [Session {session_id}] Successfully connected with proxy ({proxy['server']})",
+        f"[+] [Session {session_id}] Successfully connected with proxy ({proxy['server'] if proxy else 'none'})",
             bcolors.OKCYAN,
         )
 
