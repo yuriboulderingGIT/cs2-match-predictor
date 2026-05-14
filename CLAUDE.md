@@ -5,14 +5,20 @@ A Python ML model that predicts the winner of professional CS2 matches.
 Input: two team names → Output: win probability percentage (e.g. "FaZe 73% / Mongolz 27%")
 
 ## Current Status
+## Current Status
 - ✅ Python 3.14 installed, virtual environment set up
 - ✅ Dependencies installed (pandas, numpy, scikit-learn, xgboost, lightgbm, matplotlib, seaborn, jupyter)
+- ✅ camoufox[geoip] installed, browser binary downloaded
 - ✅ GitHub repo created: cs2-match-predictor
-- ✅ Folder structure created (data/raw, data/processed, notebooks, src, models)
-- ✅ Kaggle dataset downloaded into data/raw/ (round-by-round CS2 match data from griffindesroches)
+- ✅ Folder structure created
+- ✅ Kaggle dataset downloaded into data/raw/
 - ✅ ClassicalClemi HLTV scraper copied into src/scraping/
-- 🔄 Currently on branch: feature/scraper-clemi
-- ⏳ Next: install scraper dependencies and test the scraper
+- ✅ Scraper fully configured (user_agents.json + cookies.json created in data/)
+- ✅ Script 1 done — 263 team URLs saved to data/team_urls.csv
+- ✅ Script 2 done — 100 team stats saved to data/team_data.csv
+- ⏳ Next: run script 3 (async_get_player_data.py) — consider limiting to 30-50 teams
+- ⏳ Then: scripts 4 and 5 for match URLs and match data
+- ⏳ Then: merge feature/scraper-clemi → dev, start feature/data-prep
 
 ## Branch Strategy
 ```
