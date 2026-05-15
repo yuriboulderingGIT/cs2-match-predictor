@@ -16,7 +16,7 @@ config = {
     "file_to_read": "data/team_data.csv",  # ".../.../example.csv" (file to read from, e.g. urls)
     "savefile_location": "data/player_data.csv",  # ".../.../example.csv" (file that will get created/updated when finished)
     "team_amount": 50,  # -1 = all # Amount of teams of which the players will get scraped, basically multiply it by 5 to get player amount
-    "headless": True,  # hide the browser
+    "headless": False,  # hide the browser
     "screen": Screen(max_width=1920, max_height=1080),
     "screen_amount": 1,  # only matters if headless = False
     "session_amount": 2,  # amount of parallel sessions (you will get rate limited if you set this too high)
