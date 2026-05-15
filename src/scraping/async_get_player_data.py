@@ -15,7 +15,7 @@ import re
 config = {
     "file_to_read": "data/team_data.csv",  # ".../.../example.csv" (file to read from, e.g. urls)
     "savefile_location": "data/player_data.csv",  # ".../.../example.csv" (file that will get created/updated when finished)
-    "team_amount": 10,  # -1 = all # Amount of teams of which the players will get scraped, basically multiply it by 5 to get player amount
+    "team_amount": 50,  # -1 = all # Amount of teams of which the players will get scraped, basically multiply it by 5 to get player amount
     "headless": True,  # hide the browser
     "screen": Screen(max_width=1920, max_height=1080),
     "screen_amount": 1,  # only matters if headless = False
@@ -24,8 +24,8 @@ config = {
     "use_proxy": False,  # use proxy
     "use_proxy_once": False,  # enable this to use a different proxy for each session (if you have enough proxies)
     "proxy_location": ".../.../proxies.txt",  # location of the proxy list (format: server:port:username:password), 1 every line
-    "user_agents_location": ".../.../user_agents.json",  # location of the user agents list # refer to the readme for more info
-    "cookie_location": ".../.../autologin_cookie.json",  # location of the cookies incl. autologin
+    "user_agents_location": "data/user_agents.json",  # location of the user agents list # refer to the readme for more info
+    "cookie_location": "data/cookies.json",  # location of the cookies incl. autologin
 }
 
 
@@ -46,6 +46,7 @@ def status(msg, color=bcolors.ENDC):
 
 
 df = pd.read_csv(config["file_to_read"])
+df = df.sort_values("world_ranking").reset_index(drop=True)
 player_data = []  # List that gets turned into the savefile
 lock = asyncio.Lock()  # lock for thread-safety when writing to data list
 
